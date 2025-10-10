@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -80,11 +81,11 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'gene_db',
-        "USER": 'postgres',
-        "PASSWORD": 'password@321',
-        "HOST": 'localhost',
-        "PORT": '5432',
+        "NAME": os.getenv("DB_NAME", "genes"),
+        "USER": os.getenv("DB_USER", "postgres"),
+        "PASSWORD": os.getenv("DB_PASS", "postgres"),
+        "HOST": os.getenv("DB_HOST", "db"),  # Docker service name
+        "PORT": "5432",
     }
 }
 

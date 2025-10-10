@@ -1,0 +1,17 @@
+# .dockerignore
+
+# Ignore the frontend node_modules directory
+frontend/node_modules
+
+# Ignore the Python virtual environment
+.venv
+
+# Ignore Python bytecode and cache
+__pycache__/
+*.pyc
+
+# Ignore the local SQLite database
+db.sqlite3
+
+# Ignore Git directory
+.git
